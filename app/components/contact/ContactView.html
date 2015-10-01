@@ -1,0 +1,57 @@
+﻿<div id="contactList" class="contact-list" ng-controller="ContactCtrl">
+    <section>
+        <header>
+            <h3>
+                <span class="first-name">{{ contact.firstName }}</span>
+                <span class="last-name">{{ contact.lastName }}</span>
+            </h3>
+
+            <div class="contact-options float-right">
+                <span class="options-expand" ng-click="toggleOptions($event, $index)" aria-label="Toggle ngShow"><i class="fa fa-cog"></i></span>
+                <span class="options-container animate-options delete" hidden="true" aria-hidden="true">
+                    <button class="btn btn-warning" ng-click="open($index)">Delete</button>
+                </span>
+            </div>
+
+            <div class="favorite" ng-click="toggleFavorite($event, $index)">
+                <i class="fa fa-star icon" ng-show="contact.favorite"></i>
+                <i class="fa fa-star-o icon" ng-hide="contact.favorite"></i>
+            </div>
+        </header>
+
+        <article>
+                
+                    <div class="contact-info">
+                        <div class="address">{{ contact.address.street }}</div>
+                        <div class="address">{{ contact.address.city }}</div>
+                        <div class="address">{{ contact.address.state }}</div>
+                        <div class="address">{{ contact.address.zip }}</div>
+                       
+                        <div class="address">{{ contact.relationship }}</div>
+                        <div class="address">{{ contact.notes }}</div>
+                    </div>
+                    
+
+        </article>
+    </section>
+
+   
+        <script type="text/ng-template" id="myModalContent.html">
+            <div class="modal-header">
+                <h3 class="modal-title">I'm a modal!</h3>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li ng-repeat="item in items">
+                        <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+                    </li>
+                </ul>
+    Selected: <b>{{ selected.item }}</b>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+            </div>
+        </script>
+
+    </div>

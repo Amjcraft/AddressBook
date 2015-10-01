@@ -1,0 +1,32 @@
+﻿<!doctype html>
+<html lang="en" ng-app="addressBookApp">
+<head>
+    <meta charset="utf-8">
+    <title>My HTML File</title>
+    <link rel="stylesheet" href="assets/libs/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/libs/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/stylesheets/styles.css">
+    <script src="assets/libs/bower_components/angular/angular.js"></script>
+    <script src="assets/libs/bower_components/angular-route/angular-route.js"></script>
+    <script src="assets/libs/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="assets/libs/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="assets/libs/bower_components/underscore/underscore-min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/components/contactsList/ContactsListController.js"></script>
+    <script src="app/components/contact/ContactController.js"></script>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-12">
+
+            <div ng-view></div>
+
+        </div>
+        </div><!--Row-->
+    </div><!-- Container -->
+    <p>Nothing here {{'yet' + '!'}}</p>
+
+</body>
+</html>

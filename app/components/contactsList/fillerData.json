@@ -1,0 +1,32 @@
+﻿[
+  {
+    "id": 0,
+    "firstName": "John",
+    "lastName": "Doe",
+    "favorite": false,
+    "thumbnail": "default-thumb.jpg",
+    "address": {
+    "street": "807 Vine",
+    "state": "TX",
+    "city": "Bryan",
+    "zip": "77802"
+  },
+  "relationship": "None",
+  "notes":  "Some notes info" 
+  },
+  {
+    "id": 1,
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "favorite": true,
+    "thumbnail": "default-thumb.jpg",
+    "address": {
+    "street": "807 Vine",
+    "state": "TX",
+    "city": "Bryan",
+    "zip": "77802"
+  },
+  "relationship": "None",
+  "notes":  "Some notes info" 
+  }
+]
