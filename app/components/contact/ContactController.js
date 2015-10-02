@@ -1,9 +1,22 @@
 ﻿
-addressBookAppControllers.controller('ContactCtrl', ['$scope', '$routeParams', '$http',
-  function ($scope, $routeParams, $http) {
+addressBookAppControllers.controller('ContactCtrl', ['$scope', '$location', '$routeParams', '$http', 'defaultData',
+  function ($scope, $location, $routeParams, $http, defaultData) {
       $scope.contactId = $routeParams.contactId;
+       
+      $scope.contact = _.find(defaultData.getData(), function (con) { return con.id == $scope.contactId; });
+   
+      $scope.toggleOptions = function ($event) {
+          var currentOptions = $event.currentTarget.nextElementSibling;
 
-      $http.get('app/components/contactsList/fillerData.json').success(function (data) {
-          $scope.contact = _.find(data, function (con) { return con.id == $scope.contactId; });
-      });
+          if (currentOptions.hidden == false) {
+              return currentOptions.hidden = true
+          }
+          return currentOptions.hidden = false
+      };
+
+      $scope.editContact = function (contactId) {
+          var path = '/update/' + contactId;
+          $location.path(path);
+      }
+
   }]);

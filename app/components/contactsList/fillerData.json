@@ -9,7 +9,7 @@
     "street": "807 Vine",
     "state": "TX",
     "city": "Bryan",
-    "zip": "77802"
+    "zip": 77802
   },
   "relationship": "None",
   "notes":  "Some notes info" 
@@ -24,7 +24,7 @@
     "street": "807 Vine",
     "state": "TX",
     "city": "Bryan",
-    "zip": "77802"
+    "zip": 77802
   },
   "relationship": "None",
   "notes":  "Some notes info" 

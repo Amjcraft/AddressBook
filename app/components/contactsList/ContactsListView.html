@@ -12,8 +12,8 @@
 
         <article>
             <ul>
-                <li ng-repeat="contact in contacts">
-                    <div class="favorite" ng-click="toggleFavorite($event, $index)">
+                <li ng-repeat="contact in contacts | orderBy: '-favorite'">
+                    <div class="favorite" ng-click="toggleFavorite($event, contact.id)">
                         <i class="fa fa-star icon" ng-show="contact.favorite"></i>
                         <i class="fa fa-star-o icon" ng-hide="contact.favorite"></i>
                     </div>

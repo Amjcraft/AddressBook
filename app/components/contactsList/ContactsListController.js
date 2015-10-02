@@ -16,9 +16,9 @@ addressBookAppControllers.controller('ContactsListCtrl', ['$scope', '$routeParam
           return currentOptions.hidden = false
       };
 
-      $scope.toggleFavorite = function ($event, $index) {
-          var currentItem = $scope.contacts[$index];
-          $scope.$apply
+      $scope.toggleFavorite = function ($event, contactId) {
+          var currentItem = _.find($scope.contacts, function (con) { return con.id == contactId; });
+          
           if (currentItem.favorite == false) {
               currentItem.favorite = true;
           } else {
