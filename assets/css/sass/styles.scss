@@ -1,32 +1,133 @@
-﻿
+﻿$font-stack: "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+$background-color: #f9f9f9;
+$content-background-color: #ffffff; 
+$teal: #2c4d52;
+$teal-medium: #214045;
+$teal-dark: #1a2f30;
+$orange: #ee4423;
+ 
+html {
+	font-size: 10px;    
+}
+
+p {
+	font-size: 1.6rem;
+    line-height: 2.6rem;
+}
+
+a {
+	color: $teal-medium;
+	&:hover {
+		color:$teal-dark;
+		text-decoration: underline;
+	}
+}
+
+h1, h2, h3, h4 {
+    font-family: "Roboto";
+}
+
+h3 {
+	font-size:2.1rem;
+}
+
+ 
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: $font-stack;
+    background-color: #fff;
+    font-size: 14px;
+    font-size: 2rem; 
+    color: #555555;
+    text-rendering: optimizeLegibility;
+}
+
+section.shadow {
+    -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background: $teal;
+}
+
 .float-left {
-    float:left;
+	float:left;
 }
 
 .float-right {
-    float:right;
+	float:right;
+}
+
+.animation { opacity:0; transition:all 400ms ease-in-out; }
+
+.animation.fade-in { opacity:1; }
+
+header {
+    background: $teal;
+    color:#fff;
+    padding: 20px 0;
+}
+
+
+.content-wrap {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    overflow: hidden;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    background-color: #FFF;
+    padding:35px;
+
 }
 
 .contact-list {
     margin: 20px 0;
     ul {
            margin: 20px 0;
-           border: 3px solid #333;
-           border-radius: 15px; 
+          
+         
            padding: 0px;
         li {
                list-style:none;
                border-bottom:1px solid #333;
                overflow: hidden;
+               padding:10px 0;
                div {
                        display:inline-block;
                        padding:15px 10px;
+                       vertical-align: text-top;
                    }
                 &:last-child {
                     border-bottom:none;
                 }
+                .thumbnail {
+                    position: relative;
+                    width: 60px;
+                    height: 60px;
+                    margin: 0 auto;
+                    border-radius: 100%;
+                    overflow: hidden;
+                    padding:5px;
+                    img {
+                        width:100%;
+                        vertical-align: text-top;
+                        display: inline-block;
+                       
+                    }
+                }
             }
 
        }
-
 }
+
+.fa-star {
+        color: #C7C421;
+}
+
+

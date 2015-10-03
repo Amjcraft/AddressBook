@@ -1,36 +1,144 @@
-/* line 2, ../sass/styles.scss */
+/* line 9, ../sass/styles.scss */
+html {
+  font-size: 10px;
+}
+
+/* line 13, ../sass/styles.scss */
+p {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+
+/* line 18, ../sass/styles.scss */
+a {
+  color: #214045;
+}
+/* line 20, ../sass/styles.scss */
+a:hover {
+  color: #1a2f30;
+  text-decoration: underline;
+}
+
+/* line 26, ../sass/styles.scss */
+h1, h2, h3, h4 {
+  font-family: "Roboto";
+}
+
+/* line 30, ../sass/styles.scss */
+h3 {
+  font-size: 2.1rem;
+}
+
+/* line 35, ../sass/styles.scss */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+  background-color: #fff;
+  font-size: 14px;
+  font-size: 2rem;
+  color: #555555;
+  text-rendering: optimizeLegibility;
+}
+
+/* line 47, ../sass/styles.scss */
+section.shadow {
+  -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* line 53, ../sass/styles.scss */
+body {
+  background: #2c4d52;
+}
+
+/* line 57, ../sass/styles.scss */
 .float-left {
   float: left;
 }
 
-/* line 6, ../sass/styles.scss */
+/* line 61, ../sass/styles.scss */
 .float-right {
   float: right;
 }
 
-/* line 10, ../sass/styles.scss */
+/* line 65, ../sass/styles.scss */
+.animation {
+  opacity: 0;
+  transition: all 400ms ease-in-out;
+}
+
+/* line 67, ../sass/styles.scss */
+.animation.fade-in {
+  opacity: 1;
+}
+
+/* line 69, ../sass/styles.scss */
+header {
+  background: #2c4d52;
+  color: #fff;
+  padding: 20px 0;
+}
+
+/* line 76, ../sass/styles.scss */
+.content-wrap {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  background-color: #FFF;
+  padding: 35px;
+}
+
+/* line 89, ../sass/styles.scss */
 .contact-list {
   margin: 20px 0;
 }
-/* line 12, ../sass/styles.scss */
+/* line 91, ../sass/styles.scss */
 .contact-list ul {
   margin: 20px 0;
-  border: 3px solid #333;
-  border-radius: 15px;
   padding: 0px;
 }
-/* line 17, ../sass/styles.scss */
+/* line 96, ../sass/styles.scss */
 .contact-list ul li {
   list-style: none;
   border-bottom: 1px solid #333;
   overflow: hidden;
+  padding: 10px 0;
 }
-/* line 21, ../sass/styles.scss */
+/* line 101, ../sass/styles.scss */
 .contact-list ul li div {
   display: inline-block;
   padding: 15px 10px;
+  vertical-align: text-top;
 }
-/* line 25, ../sass/styles.scss */
+/* line 106, ../sass/styles.scss */
 .contact-list ul li:last-child {
   border-bottom: none;
+}
+/* line 109, ../sass/styles.scss */
+.contact-list ul li .thumbnail {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 100%;
+  overflow: hidden;
+  padding: 5px;
+}
+/* line 117, ../sass/styles.scss */
+.contact-list ul li .thumbnail img {
+  width: 100%;
+  vertical-align: text-top;
+  display: inline-block;
+}
+
+/* line 129, ../sass/styles.scss */
+.fa-star {
+  color: #C7C421;
 }

@@ -1,12 +1,11 @@
 ﻿var addressBookAppControllers = angular.module('addressBookAppControllers', ['ui.bootstrap']);
 
 
-addressBookAppControllers.controller('ContactsListCtrl', ['$scope', '$routeParams', '$http', '$location', '$modal',
-  function ($scope, $routeParams, $http, $location, $modal) {
-      $http.get('app/components/contactsList/fillerData.json').success(function (data) {
-          $scope.contacts = data;
-      });
-
+addressBookAppControllers.controller('ContactsListCtrl', ['$scope', '$routeParams', '$location', '$modal', 'addressStorage',
+  function ($scope, $routeParams, $location, $modal, addressStorage) {
+      console.log('Hit List Ctrl');
+      $scope.contacts = addressStorage.getData();
+    
       $scope.toggleOptions = function ($event) {
           var currentOptions = $event.currentTarget.nextElementSibling;
 

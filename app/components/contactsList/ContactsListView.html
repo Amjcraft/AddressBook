@@ -1,21 +1,23 @@
-﻿<div id="contactList" class="contact-list" ng-controller="ContactsListCtrl">
+﻿<div id="contactList" class="contact-list">
     <section>
         <header>
             <h3>My Contacts</h3>
-            <div class="serach-bar">
+            <div class="serach-bar" >
                 <form novalidate>
-                    Search: <input type="text"/>
-                    <input type="submit" class="btn btn-primary " ng-click="search(user)" value="Search" />
+                    Search: <input type="text" ng-model="searchText"/>
                 </form>
             </div>
         </header>
-
-        <article>
+        
+        <article class="content-wrap">
             <ul>
-                <li ng-repeat="contact in contacts | orderBy: '-favorite'">
+                <li ng-repeat="contact in contacts | orderBy: '-favorite' | filter:searchText">
                     <div class="favorite" ng-click="toggleFavorite($event, contact.id)">
                         <i class="fa fa-star icon" ng-show="contact.favorite"></i>
                         <i class="fa fa-star-o icon" ng-hide="contact.favorite"></i>
+                    </div>
+                    <div class="thumbnail">
+                        <img ng-src="assets/img/{{contact.thumbnail}}" alt="Description" />
                     </div>
                     <div class="contact-name" ng-click="viewContact(contact.id)">
                         <span class="first-name">{{ contact.firstName }}</span>

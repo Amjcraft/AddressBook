@@ -8,11 +8,11 @@
         this.notes = ""
     } else {
        this.id = c.id,
-       this.favorite = c.favorite,
-       this.firstName = c.firstName,
-       this.lastName = c.lastName,
-       this.address = c.address,
-       this.notes = c.notes
+       this.favorite = c.favorite || "",
+       this.firstName = c.firstName || "",
+       this.lastName = c.lastName || "",
+       this.address = c.address || "",
+       this.notes = c.notes || ""
     }
 }
 
