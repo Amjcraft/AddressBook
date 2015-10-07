@@ -14,8 +14,23 @@ addressBookAppControllers.controller('ContactCtrl', ['$scope', '$location', '$ro
           return currentOptions.hidden = false
       };
 
+      $scope.toggleFavorite = function ($event) {
+          var currentItem = $scope.contact
+
+          if (currentItem.favorite == false) {
+              currentItem.favorite = true;
+          } else {
+              currentItem.favorite = false;
+          }
+      };
+
       $scope.editContact = function (contactId) {
           var path = '/update/' + contactId;
+          $location.path(path);
+      }
+
+      $scope.viewContactList = function () {
+          var path = '/';
           $location.path(path);
       }
 

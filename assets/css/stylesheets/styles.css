@@ -65,24 +65,36 @@ body {
 }
 
 /* line 65, ../sass/styles.scss */
+.clear-fix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* line 73, ../sass/styles.scss */
 .animation {
   opacity: 0;
   transition: all 400ms ease-in-out;
 }
 
-/* line 67, ../sass/styles.scss */
+/* line 75, ../sass/styles.scss */
 .animation.fade-in {
   opacity: 1;
 }
 
-/* line 69, ../sass/styles.scss */
+/* line 77, ../sass/styles.scss */
 header {
-  background: #2c4d52;
   color: #fff;
-  padding: 20px 0;
+  padding: 40px 0;
+}
+/* line 80, ../sass/styles.scss */
+header h2, header h3, header h4 {
+  margin: 0px;
 }
 
-/* line 76, ../sass/styles.scss */
+/* line 86, ../sass/styles.scss */
 .content-wrap {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -94,34 +106,36 @@ header {
   background-color: #FFF;
   padding: 35px;
 }
-
-/* line 89, ../sass/styles.scss */
-.contact-list {
-  margin: 20px 0;
+/* line 96, ../sass/styles.scss */
+.content-wrap header {
+  background: #fff;
+  color: #333;
+  padding: 0px;
 }
-/* line 91, ../sass/styles.scss */
+
+/* line 104, ../sass/styles.scss */
 .contact-list ul {
   margin: 20px 0;
   padding: 0px;
 }
-/* line 96, ../sass/styles.scss */
+/* line 109, ../sass/styles.scss */
 .contact-list ul li {
   list-style: none;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #ddd;
   overflow: hidden;
   padding: 10px 0;
 }
-/* line 101, ../sass/styles.scss */
+/* line 114, ../sass/styles.scss */
 .contact-list ul li div {
   display: inline-block;
   padding: 15px 10px;
   vertical-align: text-top;
 }
-/* line 106, ../sass/styles.scss */
+/* line 119, ../sass/styles.scss */
 .contact-list ul li:last-child {
   border-bottom: none;
 }
-/* line 109, ../sass/styles.scss */
+/* line 122, ../sass/styles.scss */
 .contact-list ul li .thumbnail {
   position: relative;
   width: 60px;
@@ -131,14 +145,119 @@ header {
   overflow: hidden;
   padding: 5px;
 }
-/* line 117, ../sass/styles.scss */
+/* line 130, ../sass/styles.scss */
 .contact-list ul li .thumbnail img {
   width: 100%;
   vertical-align: text-top;
   display: inline-block;
 }
 
-/* line 129, ../sass/styles.scss */
+/* line 146, ../sass/styles.scss */
 .fa-star {
   color: #C7C421;
+}
+
+@keyframes expand {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 100px;
+  }
+}
+@keyframes contract {
+  from {
+    width: 100px;
+  }
+  to {
+    width: 0px;
+  }
+}
+/* line 160, ../sass/styles.scss */
+span.expanded {
+  display: inline-block;
+  animation-name: expand;
+  animation-duration: 1s;
+}
+
+/* line 166, ../sass/styles.scss */
+span.contract {
+  display: inline-block;
+  animation-name: contract;
+  animation-duration: 1s;
+}
+
+/* line 174, ../sass/styles.scss */
+#background {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* line 180, ../sass/styles.scss */
+.minor-bar:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: visible;
+  width: 100%;
+  height: 150px;
+  z-index: -1;
+}
+
+/* line 192, ../sass/styles.scss */
+.minor-bars-wrap {
+  margin: 35% 0;
+  position: relative;
+}
+
+/* line 197, ../sass/styles.scss */
+.bar-0:before {
+  top: 0px;
+  background: #214045;
+}
+
+/* line 202, ../sass/styles.scss */
+.bar-1:before {
+  top: 150px;
+  background: #ee4423;
+}
+
+/* line 207, ../sass/styles.scss */
+.bar-2:before {
+  top: 300px;
+  background: #1a2f30;
+}
+
+/* line 212, ../sass/styles.scss */
+.major-bar {
+  position: absolute;
+  bottom: -250px;
+  height: 500px;
+  width: 100%;
+}
+
+/* line 220, ../sass/styles.scss */
+.major-bar:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: visible;
+  width: 100%;
+  height: 500px;
+  background: #1a2f30;
+  z-index: -1;
+}
+
+/* line 232, ../sass/styles.scss */
+.skew-negative:before {
+  transform: skewY(35deg);
+}
+
+/* line 236, ../sass/styles.scss */
+.skew-positive:before {
+  transform: skewY(-20deg);
 }

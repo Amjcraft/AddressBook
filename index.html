@@ -11,6 +11,7 @@
     <script src="assets/libs/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="assets/libs/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="assets/libs/bower_components/underscore/underscore-min.js"></script>
+    <script src="assets/js/Util.js"></script>
     <script src="app/app.js"></script>
     <script src="app/models/contact.js"></script>
     <script src="app/components/contactsList/ContactsListController.js"></script>
@@ -19,9 +20,26 @@
     
 </head>
 <body>
+    <div id="background">
+        <div class="minor-bars-wrap">
+            <div class="minor-bar bar-0 skew-negative"></div>
+            <div class="minor-bar bar-1 skew-negative"></div>
+            <div class="minor-bar bar-2 skew-negative"></div>
+        </div>
+        <div class="minor-bar skew-positive"></div>
+        <div class="major-bar skew-positive"></div>
+    </div>
     <div class="container">
         <div class="row">
         <div class="col-lg-12">
+            <header class="clear-fix">
+                <h2 class="float-left">My AddressBook</h2>
+                
+                <span class="book-options float-right" ng-controller="index">
+                    <button class="btn btn-primary" ng-click="viewContacts()">View Contacts</button>
+                    <button class="btn btn-primary" ng-click="addContact()">Add Contact</button>
+                </span>
+            </header>
 
             <div ng-view></div>
 
@@ -29,6 +47,5 @@
         </div><!--Row-->
     </div><!-- Container -->
     <p>Nothing here {{'yet' + '!'}}</p>
-
 </body>
 </html>

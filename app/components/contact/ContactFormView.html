@@ -1,39 +1,48 @@
 ﻿
 <article class="content-wrap">
 <form name="contactForm">
-    <div class="form-group col-6">
-        <label for="contactFirstName">First Name</label>
-        <input type="text" class="form-control" id="contactFirstName" placeholder="First Name" ng-model="contact.firstName"/>
-    </div>
-    <div class="form-group col-6" >
-        <label for="contactLastName">Last Name</label>
-        <input type="text" class="form-control" id="contactLastName" placeholder="Last Name" ng-model="contact.lastName">
-    </div>
-    <h3>Address</h3>
-    <div class="form-group col-12">
-        <label for="contactStreet">Street</label>
-        <input type="text" class="form-control" id="contactStreet" placeholder="Street" ng-model="contact.address.street">
-    </div>
-    <div class="form-group col-5">
-        <label for="contactStreet">City</label>
-        <input type="text" class="form-control" id="contactCity" placeholder="City" ng-model="contact.address.city">
-    </div>
-    <div class="form-group col-3">
-        <label for="contactStreet">State</label>
-        <input type="text" class="form-control" maxlength="2" id="contactCity" placeholder="ST" ng-model="contact.address.state">
-    </div>
-    <div class="form-group col-4">
-        <label for="contactStreet">zip</label>
-        <input type="number" class="form-control" maxlength="5" id="contactZip" ng-model="contact.address.zip">
-    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label for="contactFirstName">First Name</label>
+            <input type="text" class="form-control" id="contactFirstName" placeholder="First Name" ng-model="contact.firstName" />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="contactLastName">Last Name</label>
+            <input type="text" class="form-control" id="contactLastName" placeholder="Last Name" ng-model="contact.lastName">
+        </div>
+     </div>
+        <h3>Address</h3>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label for="contactStreet">Street</label>
+                <input type="text" class="form-control" id="contactStreet" placeholder="Street" ng-model="contact.address.street">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-5">
+                <label for="contactStreet">City</label>
+                <input type="text" class="form-control" id="contactCity" placeholder="City" ng-model="contact.address.city">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="contactStreet">State</label>
+                <input type="text" class="form-control" maxlength="2" id="contactCity" placeholder="ST" ng-model="contact.address.state">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="contactStreet">zip</label>
+                <input type="number" class="form-control" maxlength="5" id="contactZip" ng-model="contact.address.zip">
+            </div>
+        </div>
 
-  
-    <h3>Notes</h3>
-    <div class="form-group col-4">
-        <label for="contactNotes">Note</label>
-        <textarea id="contactNotes" cols="100" rows="25" ng-model="contact.notes"></textarea>
+        <h3>Notes</h3>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label for="contactNotes">Note</label>
+            <textarea id="contactNotes" cols="100" rows="25" ng-model="contact.notes"></textarea>
+        </div>
     </div>
-
-    <button type="submit" ng-click="saveContact()" class="btn btn-default">Save</button>
+    <div class="row">
+        <button type="submit" ng-click="saveContact()" class="btn btn-default">Save</button>
+        <button type="submit" ng-click="viewContacts()" class="btn btn-default">Cancel</button>
+    </div>
 </form>
 </article>

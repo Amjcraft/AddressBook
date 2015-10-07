@@ -10,10 +10,14 @@ addressBookAppControllers.controller('ContactsListCtrl', ['$scope', '$routeParam
           var currentOptions = $event.currentTarget.nextElementSibling;
 
           if (currentOptions.hidden == false) {
-              return currentOptions.hidden = true
+              
+              currentOptions.hidden = true;
+              return;
           }
-          return currentOptions.hidden = false
+          currentOptions.hidden = false;
+
       };
+     
 
       $scope.toggleFavorite = function ($event, contactId) {
           var currentItem = _.find($scope.contacts, function (con) { return con.id == contactId; });
@@ -29,8 +33,10 @@ addressBookAppControllers.controller('ContactsListCtrl', ['$scope', '$routeParam
           var path = '/contact/' + contactId;
           $location.path(path);
       }
+
       
-      $scope.open = function (itemIndex) {
+      
+      $scope.delete = function (itemIndex, contact) {
           var modalInstance = $modal.open({
               animation: $scope.animationsEnabled,
               templateUrl: 'myModalContent.html',
@@ -38,12 +44,19 @@ addressBookAppControllers.controller('ContactsListCtrl', ['$scope', '$routeParam
               resolve: {
                   itemIndex: function () {
                       return itemIndex;
+                  },
+                  itemID: function () {
+                      return contact.id;
+                  },
+                  contactName: function () {
+                      return contact.firstName + ' ' + contact.lastName;
                   }
               }
+
           });
 
           modalInstance.result.then(function (selectedItem) {
-              $scope.contacts.splice(selectedItem, selectedItem + 1);
+              $scope.contacts.splice(selectedItem, 0);
           }, function () {
              console.log('Errorish')
           });
@@ -56,13 +69,14 @@ addressBookAppControllers.controller('ContactsListCtrl', ['$scope', '$routeParam
   }]);
 
 
-addressBookAppControllers.controller('ModalInstanceCtrl', function ($scope, $modalInstance, itemIndex) {
+addressBookAppControllers.controller('ModalInstanceCtrl', function ($scope, $modalInstance, addressStorage, itemIndex, itemID, contactName) {
 
     $scope.selected = {
-        item: itemIndex
+        name: contactName
     };
 
     $scope.ok = function () {
+        addressStorage.deleteData(itemID)
         $modalInstance.close(itemIndex);
     };
 

@@ -1,5 +1,5 @@
 ﻿
-    <div id="contactList" class="contact-list">
+    <div id="contactList" class="contact-list content-wrap">
         <section>
             <header>
                 <h3>
@@ -19,20 +19,33 @@
                     <i class="fa fa-star icon" ng-show="contact.favorite"></i>
                     <i class="fa fa-star-o icon" ng-hide="contact.favorite"></i>
                 </div>
-                <div class="btn-back"><< Back</div>
+                <div class="btn-back" ng-click="viewContactList()"><< Back</div>
             </header>
 
-            <article class="content-wrap">
+            <article>
 
                 <div class="contact-info">
-                    <div class="address">{{ contact.address.street }}</div>
-                    <div class="address">{{ contact.address.city }}</div>
-                    <div class="address">{{ contact.address.state }}</div>
-                    <div class="address">{{ contact.address.zip }}</div>
-
-                    <div class="address">{{ contact.relationship }}</div>
-                    <div class="address">{{ contact.notes }}</div>
-                </div>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="google-map">
+                                Google Map
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                        <div class="address">
+                                <div>{{ contact.address.street }}</div>
+                                <span>{{ contact.address.city }}</span>
+                                <span>{{ contact.address.state }}</span>
+                                <span>{{ contact.address.zip }}</span>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <div class="notes">{{ contact.notes }}</div>
+                        </div>
+                    </div>
+                 </div>
 
 
             </article>
@@ -49,7 +62,7 @@
                         <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
                     </li>
                 </ul>
-                Selected: <b>{{ selected.item }}</b>
+                Are you sure you want to delete <b>{{ selected.item }}</b>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
@@ -58,4 +71,4 @@
         </script>
 
     </div>
-</article>
+

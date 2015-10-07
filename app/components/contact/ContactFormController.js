@@ -13,10 +13,10 @@ addressBookAppControllers.controller('ContactUpdateFormCtrl', ['$scope', '$locat
       }
   }]);
 
-addressBookAppControllers.controller('ContactAddFormCtrl', ['$scope', '$location', '$routeParams', '$http', 'addressStorage',
-  function ($scope, $location, $routeParams, $http, addressStorage) {
+addressBookAppControllers.controller('ContactAddFormCtrl', ['$scope', '$location', '$routeParams', '$http', 'addressStorage', 'utils',
+  function ($scope, $location, $routeParams, $http, addressStorage, utiles) {
 
-      $scope.contact = new Contact();
+      $scope.contact = new Contact({ 'id': utiles.getUniqueID() });
 
       $scope.saveContact = function () {
           addressStorage.saveData($scope.contact)

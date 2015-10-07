@@ -5,48 +5,42 @@ var addressBookApp = angular.module('addressBookApp', [
   'addressBookAppControllers'
 ]);
 
-//addressBookApp.controller('DefaultData', ['$scope', '$routeParams', '$http', '$location',
-//  function ($scope, $routeParams, $http, $location, $modal) {
-//      $http.get('app/components/contactsList/fillerData.json').success(function (data) {
-//          defaultData = data;
-//      });
-//  }]);
+addressBookApp.controller('index', ['$scope', '$location', function ($scope, $location) {
+    $scope.addContact = function () {
+        var path = '/add';
+        $location.path(path);
+    }
 
-//addressBookApp.factory('defaultData', ['$http', function ($http) {
-//    var _data;
+    $scope.viewContacts = function () {
+        var path = '/';
+        $location.path(path);
+    }
+}]);
 
-//    function setData(data) {
-//        _data = data;
-//    };
+addressBookApp.factory('utils',['addressStorage', function (addressStorage) {
+    function getUniqueID() {
+        var data = addressStorage.getData();
+        if (data != undefined) {
+            var id = data.length;
+            return processUniqueId(id, data);
 
-//    function getData() {
-//        if (_data != undefined) {
-//            console.log('get it');
-//            return _data;
-//        }
-//        console.log('NO Data Found');
-//    };
+        }
+    };
 
-//    function saveData(data) {
-//        var itemIndex = _.findIndex(_data, function (con) { return con.id == data.id; });
-//        if(itemIndex != -1) {
-//         return _data[itemIndex] = data;
-//        }
-//        _data.push(data);
-//    };
+    function processUniqueId(id, data) {
+        if (_.findWhere(data, { id: id })) {
+            id = id + 1;
+            return processUniqueId(id, data)
+        } else {
+            return id;
+        }
+    };
 
-//    function loadData(callback) {
-//        $http.get('app/components/contactsList/fillerData.json').success(function (data) {
-//            setData(data);
-//            console.log('Data Loaded')
-//        });
-//    }
-//    return {
-//        getData: getData,
-//        loadData: loadData,
-//        saveData: saveData
-//    }
-//}]);
+    return {
+        getUniqueID: getUniqueID
+    }
+
+}]);
 
 addressBookApp.factory('addressStorage', ['$http', function ($http) {
     var _data = [],
@@ -85,10 +79,25 @@ addressBookApp.factory('addressStorage', ['$http', function ($http) {
         setData(JSON.parse(localStorage.getItem(_storageKey)));
     }
 
+    function deleteData(itemId) {
+        if (_data.length == 1) {
+            _data = [];
+            localStorage.removeItem(_storageKey);
+            return;
+        }
+        var itemIndex = _.findIndex(_data, function (con) { return con.id == itemId; });
+        if (itemIndex != -1) {
+            _data.splice(itemIndex, 1);
+            localStorage.setItem(_storageKey, JSON.stringify(_data));
+            return;
+        }
+    }
+
     return {
         getData: getData,
         loadData: loadData,
-        saveData: saveData
+        saveData: saveData,
+        deleteData: deleteData
     }
 }]);
 
